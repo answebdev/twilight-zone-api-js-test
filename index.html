@@ -2,93 +2,36 @@
 <html lang="en">
 
 <head>
+    <title>Twilight Zone API JS Test Page</title>
     <link rel="icon" href="spiral.png" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twilight Zone API JS Test Page</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background-color: #f4f4f4;
-    }
-
-    .container {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 2em;
-    }
-
-    #tz {
-        width: 500px;
-        height: auto;
-    }
-
-    #test-img {
-        display: flex;
-        justify-content: center;
-    }
-
-    #main-title {
-        text-align: center;
-    }
-
-    .episodes {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .episode {
-        margin-bottom: 40px;
-        margin: 0 10px;
-    }
-
-    .details {
-        line-height: 1.5;
-    }
-
-    #title {
-        width: 300px;
-    }
-
-    .narration {
-        width: 300px;
-        line-height: 1.5;
-    }
-
-    #image {
-        width: 300px;
-        height: 300px;
-    }
-
-    .top {
-        margin-top: 40px;
-        text-align: center;
-    }
-</style>
 
 <!-- Site Live URL: https://answebdev.github.io/twilight-zone-api-js-test/ -->
 
 <body>
-    <a name="top"></a>
+    <!-- Start Navbar -->
+    <div class="topnav">
+        <a class="active" href="index.html">Twilight Zone API</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="season1.html">Season 1</a>
+        <a href="season2.html">Season 2</a>
+        <a href="season3.html">Season 3</a>
+        <a href="season4.html">Season 4</a>
+        <a href="season5.html">Season 5</a>
+    </div>
+    <!-- End Navbar -->
 
     <div class="container">
         <div>
 
-            <div id='test-img'>
-                <!-- Test Image from https://postimages.org/
-                Source: https://postimg.cc/Z9dTTptB/d306f71c -->
-                <!-- Hotlink for website: -->
-                <!-- <a href='https://postimg.cc/Z9dTTptB' target='_blank'><img
-                        src='https://i.postimg.cc/pd0yJJsZ/time-enough-at-last-test.png' title="Time Enough at Last"
-                        border='0' alt='time-enough-at-last-test' />
-                </a> -->
+            <h1 id='main-title'>Twilight Zone API JS Test Page</h1>
 
+            <div id='test-img'>
                 <!-- Source: https://postimg.cc/HJRfBkxQ/5713f9fd -->
                 <!-- <a href='https://postimg.cc/HJRfBkxQ' target='_blank'><img id='tz'
                         src='https://i.postimg.cc/qRv4BtHZ/the-twilight-zone.png' border='0' alt='The Twilight Zone' />
@@ -98,66 +41,11 @@
                         src='https://i.postimg.cc/MKbfQ0Dn/the-twilight-zone-banner.png' border='0'
                         alt='The Twilight Zone' alt='the-twilight-zone-banner' />
                 </a>
-
-                <!-- <a href="https://i.postimg.cc/pd0yJJsZ/time-enough-at-last-test.png" rel="noopener noreferrer"
-                    target="_blank">Time Enough At
-                    Last
-                </a> -->
             </div>
 
-            <h1 id='main-title'>Twilight Zone API JS Test Page</h1>
-
-            <div class="episodes"></div>
-
-            <div class="top"> <a href="#top">Back to Top</a></div>
         </div>
     </div>
 
-    <script>
-        // Fetch request modelled after JSON Placeholder: https://jsonplaceholder.typicode.com/
-
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-
-        // This will print only one episode, the one with id of 1 (note URL: 'episodes/1')
-        // This can be used as an example request, as in JSON Placeholder example:
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes/1')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-
-        const episodeResults = document.querySelector('.episodes')
-
-        fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
-            .then((res) => res.json())
-            .then(function (data) {
-                let episodes = data.results;
-                console.log(data);
-
-                return data.map(function (item) {
-                    episodeResults.innerHTML += `
-                        <div class='episode'>
-                            <h3 id='title'>${item.title}</h3>
-                            <div class='details'>
-                                <p>
-                                    <strong>Season: </strong>${item.season}<br />
-                                    <strong>Episode: </strong>${item.episode}<br />
-                                    <strong>Year: </strong>${item.air_year}
-                                </p>
-                            </div>
-                            <img id='image' src=${item.img} alt='${item.title}' title='${item.title}' />
-                            <br />
-                            <a href=${item.imdb} rel="noopener noreferrer" target="_blank">IMDb</a>
-                            <p class='narration'><strong>Opening Narration: </strong>${item.opening_narration}</p>
-                            <p class='narration'><strong>Closing Narration: </strong>${item.closing_narration}</p>
-                        </div>
-                    `
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    </script>
 </body>
 
 </html>
