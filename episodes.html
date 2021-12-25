@@ -36,9 +36,9 @@
             <div class="episodes"></div>
 
             <!-- Loader Div -->
-            <div class="parent">
+            <!-- <div class="parent">
                 <div class="boxLoading loader"></div>
-            </div>
+            </div> -->
 
             <div class="top"> <a href="#top">Back to Top</a></div>
         </div>
@@ -60,8 +60,8 @@
         const episodeResults = document.querySelector('.episodes');
 
         // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
-        let loader = `<div class="boxLoading"></div>`;
-        document.querySelector('.boxLoading').innerHTML = loader;
+        // let loader = `<div class="boxLoading"></div>`;
+        // document.querySelector('.boxLoading').innerHTML = loader;
 
         fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
             .then((res) => res.json())
@@ -82,14 +82,13 @@
                             </div>
                             <img id='image' src=${item.img} alt='${item.title}' title='${item.title}' />
                             <br />
-                            <a href=${item.imdb} rel="noopener noreferrer" target="_blank">IMDb</a>
                             <p class='narration'><strong>Opening Narration: </strong>${item.opening_narration}</p>
                             <p class='narration'><strong>Closing Narration: </strong>${item.closing_narration}</p>
                         </div>
                     `
                 })
                 // Replace loader with results when results have been fetched
-                document.querySelector('.episodes').innerHTML = episodes;
+                // document.querySelector('.episodes').innerHTML = episodes;
             })
             .catch(function (error) {
                 console.log(error);
