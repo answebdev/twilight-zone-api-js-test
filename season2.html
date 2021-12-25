@@ -36,9 +36,9 @@
             <div class="episodes"></div>
 
             <!-- Loader Div -->
-            <!-- <div class="parent">
+            <div class="parent">
                 <div class="boxLoading loader"></div>
-            </div> -->
+            </div>
 
             <div class="top"> <a href="#top">Back to Top</a></div>
         </div>
@@ -60,14 +60,17 @@
         const episodeResults = document.querySelector('.episodes');
 
         // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
-        // let loader = `<div class="boxLoading"></div>`;
-        // document.querySelector('.boxLoading').innerHTML = loader;
+        let loader = `<div class="boxLoading"></div>`;
+        document.querySelector('.boxLoading').innerHTML = loader;
 
         fetch('https://the-twilight-zone-api.herokuapp.com/season2')
             .then((res) => res.json())
             .then(function (data) {
                 let episodes = data.results;
                 console.log(data);
+
+                // Stop loading spinner after data loads
+                document.querySelector('.loader').style.display = 'none';
 
                 return data.map(function (item) {
                     episodeResults.innerHTML += `
@@ -90,8 +93,6 @@
                             <div class='narration cast'><strong>Cast: </strong>${item.cast.join(', ')}</div>
                     `
                 })
-                // Replace loader with results when results have been fetched
-                // document.querySelector('.episodes').innerHTML = episodes;
             })
             .catch(function (error) {
                 console.log(error);
