@@ -35,6 +35,11 @@
 
             <div class="episodes"></div>
 
+            <!-- Loader Div -->
+            <div class="parent">
+                <div class="boxLoading loader"></div>
+            </div>
+
             <div class="top"> <a href="#top">Back to Top</a></div>
         </div>
     </div>
@@ -52,7 +57,11 @@
         //     .then((response) => response.json())
         //     .then((json) => console.log(json));
 
-        const episodeResults = document.querySelector('.episodes')
+        const episodeResults = document.querySelector('.episodes');
+
+        // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
+        let loader = `<div class="boxLoading"></div>`;
+        document.querySelector('.boxLoading').innerHTML = loader;
 
         fetch('https://the-twilight-zone-api.herokuapp.com/season4')
             .then((res) => res.json())
@@ -79,6 +88,8 @@
                         </div>
                     `
                 })
+                // Replace loader with results when results have been fetched
+                document.querySelector('.episodes').innerHTML = episodes;
             })
             .catch(function (error) {
                 console.log(error);

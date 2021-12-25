@@ -13,6 +13,35 @@
 
 <!-- Site Live URL: https://answebdev.github.io/twilight-zone-api-js-test/ -->
 
+<style>
+    .parent {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* See: https://www.w3schools.com/howto/howto_css_loader.asp */
+    .loader {
+        border: 16px solid #f3f3f3;
+        /* Light grey */
+        border-top: 16px solid #3498db;
+        /* Blue */
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
 <body>
     <!-- Start Navbar -->
     <div class="topnav">
@@ -35,6 +64,11 @@
 
             <div class="episodes"></div>
 
+            <!-- Loader Div -->
+            <div class="parent">
+                <div class="boxLoading loader"></div>
+            </div>
+
             <div class="top"> <a href="#top">Back to Top</a></div>
         </div>
     </div>
@@ -52,7 +86,11 @@
         //     .then((response) => response.json())
         //     .then((json) => console.log(json));
 
-        const episodeResults = document.querySelector('.episodes')
+        const episodeResults = document.querySelector('.episodes');
+
+        // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
+        let loader = `<div class="boxLoading"></div>`;
+        document.querySelector('.boxLoading').innerHTML = loader;
 
         fetch('https://the-twilight-zone-api.herokuapp.com/season1')
             .then((res) => res.json())
@@ -79,6 +117,8 @@
                         </div>
                     `
                 })
+                // Replace loader with results when results have been fetched
+                document.querySelector('.episodes').innerHTML = episodes;
             })
             .catch(function (error) {
                 console.log(error);
