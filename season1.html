@@ -116,7 +116,7 @@
                             <a href=${item.wikipedia} class='link' rel="noopener noreferrer" target="_blank">Wikipedia</a>
                             <a href=${item.imdb} class='link' rel="noopener noreferrer" target="_blank">IMDb</a>
                             <p></p>
-                            <div class='narration cast'><strong>Cast: </strong>${item.cast}</div>
+                            <div class='narration cast'><strong>Cast: </strong>${item.cast.join(', ')}</div>
                     `
                 })
                 // Replace loader with results when results have been fetched
