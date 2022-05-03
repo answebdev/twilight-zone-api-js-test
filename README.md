@@ -21,6 +21,9 @@ After creating my endpoints, I created this test site in order to test the endpo
                 let episodes = data.results;
                 console.log(data);
 
+                // Stop loading spinner after data loads
+                document.querySelector('.loader').style.display = 'none';
+
                 return data.map(function (item) {
                     episodeResults.innerHTML += `
                         <div class='episode'>
