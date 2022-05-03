@@ -10,21 +10,15 @@
     <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 
-
-<!-- Site Live URL: https://answebdev.github.io/twilight-zone-api-js-test/ -->
-
 <style>
     .parent {
         display: flex;
         justify-content: center;
     }
 
-    /* See: https://www.w3schools.com/howto/howto_css_loader.asp */
     .loader {
         border: 16px solid #f3f3f3;
-        /* Light grey */
         border-top: 16px solid #3498db;
-        /* Blue */
         border-radius: 50%;
         width: 100px;
         height: 100px;
@@ -74,21 +68,9 @@
     </div>
 
     <script>
-        // Fetch request modelled after JSON Placeholder: https://jsonplaceholder.typicode.com/
-
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-
-        // This will print only one episode, the one with id of 1 (note URL: 'episodes/1')
-        // This can be used as an example request, as in JSON Placeholder example:
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes/1')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
 
         const episodeResults = document.querySelector('.episodes');
 
-        // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
         let loader = `<div class='boxLoading'></div>`;
         document.querySelector('.box').innerHTML = loader;
 
