@@ -12,7 +12,7 @@ Please check out the live link for The Twilight Zone API Test Site: [The Twiligh
 
 ## Development
 
-After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season. In the following code sample, the data is fetched from the "season 1" endpoint. Next, I mapped through the data and named each one `item`. After mapping through the data, I created the HTML that is to be rendered on the page. This HTML with the data will then be rendered in a `div` with a class name of "episode".
+After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season's page. In the following code sample, the data is fetched from the "season 1" endpoint. Next, I mapped through the data and named each one `item`. After mapping through the data, I created the HTML that is to be rendered on the page. This HTML with the data will then be rendered in a `div` with a class name of "episode".
 
 ```
         fetch('https://the-twilight-zone-api.herokuapp.com/season1')
