@@ -49,7 +49,7 @@ After creating my endpoints, I created this test site in order to test the endpo
 ```
 
 
-Once the data is fetched, the HTML is rendered with the data on the page. As you can see below, the `div` with the class name of "episodes" is where the HTML is rendered. To see the complete code, see [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/season1.html "Season 1 Page Code")
+Once the data is fetched, the HTML is rendered with the data on the page. As you can see below, the `div` with the class name of "episodes" is where the HTML is rendered. To see the complete code, see [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/season1.html "Season 1 Page Code").
 ```
     <a name="top"></a>
 
