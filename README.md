@@ -1,7 +1,16 @@
 # Twilight Zone API JS Test
+
+## Description
+
 This is a test site created in order to test my custom-built [The Twilight Zone API](https://github.com/answebdev/twilight-zone-api "The Twilight Zone API"). I created a separate live site for the API documentation using React, which can be found [here](https://thetwilightzoneapi.netlify.app/ "The Twilight Zone API"). The API I created has a total of six endpoints: one endpoint for each of the five seasons, and one endpoint for all of the seasons. On this test website, you can choose to go to the page displaying the data for all seasons, as well as going to pages by season. This test site was written in HTML, CSS, and JavaScript.
 
 ![tz_test_site](https://user-images.githubusercontent.com/36783010/166586942-75479252-a18f-461a-bb07-a99a5cfb67e1.jpg)
+
+## Live Link
+
+Please check out the live link for The Twilight Zone API Test Site: [The Twilight Zone API Test Site](https://answebdev.github.io/twilight-zone-api-js-test/episodes.html "The Twilight Zone API Test Site")
+
+## Development
 
 After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season. In the following code sample, the data is fetched from the "season 1" endpoint. Next, I mapped through the data and named each one `item`. After mapping through the data, I created the HTML that is to be rendered on the page. This HTML with the data will then be rendered in a `div` with a class name of "episode".
 
