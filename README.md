@@ -16,7 +16,7 @@ After creating my endpoints, I created this test site in order to test the endpo
 
 `<h3 id='title'>${item.title}</h3>`
 
-The following JavaScript code can be viewed [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/app.jsl "Episodes Page JavaScript Code").
+The following JavaScript code can be viewed [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/app.js "Episodes Page JavaScript Code").
 
 ```
 const episodeResults = document.querySelector('.episodes');
