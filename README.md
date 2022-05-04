@@ -12,60 +12,62 @@ Please check out the live link for The Twilight Zone API Test Site: [The Twiligh
 
 ## Development
 
-After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season's page. In the following code sample, the data is fetched from the "season 1" endpoint. Next, I mapped through the data and named each one `item`. After mapping through the data, I created the HTML that is to be rendered on the page. This HTML with the data will then be rendered in a `div` with a class name of "episode".
+After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season's page. The following JavaScript code is from the `app.js` file and is for fetching and rendering the data and the HTML for all of the episodes. To start, I use `querySelector` to select the `div` with the class of "episodes". This is where the HTML and the data will be rendered on the page. Then, I start by fetching the data from my custom-built endpoint for all of the episodes: `https://the-twilight-zone-api.herokuapp.com/episodes`. Next, I map through the data name each once that is to be rebdered `item`, then create the HTML that will be rendered with the data. The fetched data is then added to this block of code so that it can be rendered on the page, for example, `<h3 id='title'>${item.title}</h3>`. The following JavaScript code can be viewed [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/app.jsl "Episodes Page JavaScript Code").
 
 ```
-        fetch('https://the-twilight-zone-api.herokuapp.com/season1')
-            .then((res) => res.json())
-            .then(function (data) {
-                let episodes = data.results;
-                console.log(data);
+const episodeResults = document.querySelector('.episodes');
 
-                // Stop loading spinner after data loads
-                document.querySelector('.loader').style.display = 'none';
+let loader = `<div class="boxLoading"></div>`;
+document.querySelector('.boxLoading').innerHTML = loader;
 
-                return data.map(function (item) {
-                    episodeResults.innerHTML += `
-                        <div class='episode'>
-                            <h3 id='title'>${item.title}</h3>
-                            <div class='details'>
-                                <p>
-                                    <strong>Season: </strong>${item.season}<br />
-                                    <strong>Episode: </strong>${item.episode}<br />
-                                    <strong>Directed by: </strong>${item.directed_by}<br />
-                                    <strong>Written by: </strong>${item.written_by}<br />
-                                    <strong>Original Air Date: </strong>${item.air_date}<br />
-                                </p>
-                            </div>
-                            <img id='image' src=${item.img} alt='${item.title}' title='${item.title}' />
-                            <br />
-                            <a href=${item.wikipedia} class='link' rel="noopener noreferrer" target="_blank">Wikipedia</a>
-                            <a href=${item.imdb} class='link' rel="noopener noreferrer" target="_blank">IMDb</a>
-                            <p></p>
-                            <div class='narration cast'><strong>Cast: </strong>${item.cast.join(', ')}</div>
-                    `
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
+  .then((res) => res.json())
+  .then(function (data) {
+    let episodes = data.results;
+    console.log(data);
+
+    // Stop loading spinner after data loads
+    document.querySelector('.loader').style.display = 'none';
+
+    return data.map(function (item) {
+      episodeResults.innerHTML += `
+                <div class='episode'>
+                    <h3 id='title'>${item.title}</h3>
+                    <div class='details'>
+                        <p>
+                            <strong>Season: </strong>${item.season}<br />
+                            <strong>Episode: </strong>${item.episode}<br />
+                            <strong>Year: </strong>${item.air_year}
+                        </p>
+                    </div>
+                    <img id='image' src=${item.img} alt='${item.title}' title='${item.title}' />
+                    <br />
+                    <p class='narration'><strong>Opening Narration: </strong>${item.opening_narration}</p>
+                    <p class='narration'><strong>Closing Narration: </strong>${item.closing_narration}</p>
+                </div>
+            `;
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 ```
 
 
-Once the data is fetched, the HTML is rendered with the data on the page. As you can see below, the `div` with the class name of "episodes" is where the HTML is rendered. You can view the complete code [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/season1.html "Season 1 Page Code").
+Once the data is fetched, the HTML is rendered with the data on the page. This can be found in the `episodes.html` file. As you can see below, the `div` with the class name of "episodes" is where the HTML is rendered with the fetched data. You can view the complete code [here](https://github.com/answebdev/twilight-zone-api-js-test/blob/master/episodes.html "Episodes Page Code").
 ```
     <a name="top"></a>
 
     <div class="container">
         <div>
 
-            <h1 id='main-title'>Season 1</h1>
+            <h1 id='main-title'>All 156 Episodes</h1>
 
             <div class="episodes"></div>
 
             <!-- Loader Div -->
             <div class="parent">
-                <div class="box loader"></div>
+                <div class="boxLoading loader"></div>
             </div>
 
             <div class="top"> <a href="#top">Back to Top</a></div>
