@@ -10,9 +10,6 @@
     <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 
-
-<!-- Site Live URL: https://answebdev.github.io/twilight-zone-api-js-test/ -->
-
 <body>
     <!-- Start Navbar -->
     <div class="topnav">
@@ -44,57 +41,7 @@
         </div>
     </div>
 
-    <script>
-        // Fetch request modelled after JSON Placeholder: https://jsonplaceholder.typicode.com/
-
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-
-        // This will print only one episode, the one with id of 1 (note URL: 'episodes/1')
-        // This can be used as an example request, as in JSON Placeholder example:
-        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes/1')
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-
-        const episodeResults = document.querySelector('.episodes');
-
-        // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
-        let loader = `<div class="boxLoading"></div>`;
-        document.querySelector('.boxLoading').innerHTML = loader;
-
-        fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
-            .then((res) => res.json())
-            .then(function (data) {
-                let episodes = data.results;
-                console.log(data);
-
-                // Stop loading spinner after data loads
-                document.querySelector('.loader').style.display = 'none';
-
-                return data.map(function (item) {
-                    episodeResults.innerHTML += `
-                        <div class='episode'>
-                            <h3 id='title'>${item.title}</h3>
-                            <div class='details'>
-                                <p>
-                                    <strong>Season: </strong>${item.season}<br />
-                                    <strong>Episode: </strong>${item.episode}<br />
-                                    <strong>Year: </strong>${item.air_year}
-                                </p>
-                            </div>
-                            <img id='image' src=${item.img} alt='${item.title}' title='${item.title}' />
-                            <br />
-                            <p class='narration'><strong>Opening Narration: </strong>${item.opening_narration}</p>
-                            <p class='narration'><strong>Closing Narration: </strong>${item.closing_narration}</p>
-                        </div>
-                    `
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    </script>
+    <script src="app.js" type="text/javascript"></script>
 
 </body>
 
