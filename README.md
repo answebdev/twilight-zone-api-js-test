@@ -24,7 +24,7 @@ const episodeResults = document.querySelector('.episodes');
 let loader = `<div class="boxLoading"></div>`;
 document.querySelector('.boxLoading').innerHTML = loader;
 
-fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
+fetch('https://the-twilight-zone-api.vercel.app/episodes')
   .then((res) => res.json())
   .then(function (data) {
     let episodes = data.results;
