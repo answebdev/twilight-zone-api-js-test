@@ -85,6 +85,10 @@ body {
   text-align: center;
 }
 
+#intro-text {
+  text-align: center;
+}
+
 .episodes {
   display: flex;
   justify-content: space-evenly;

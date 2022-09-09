@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Twilight Zone API | Season 1</title>
+    <title>The Twilight Zone API | Season 1</title>
     <link rel="icon" href="spiral.png" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +10,16 @@
     <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 
+
+<!-- Site Live URL: https://answebdev.github.io/twilight-zone-api-js-test/ -->
+
 <style>
     .parent {
         display: flex;
         justify-content: center;
     }
 
+    /* See: https://www.w3schools.com/howto/howto_css_loader.asp */
     .loader {
         border: 16px solid #f3f3f3;
         /* Light grey */
@@ -41,7 +45,7 @@
 <body>
     <!-- Start Navbar -->
     <div class="topnav">
-        <a class="active" href="index.html">Twilight Zone API</a>
+        <a class="active" href="index.html">The Twilight Zone API</a>
         <a href="episodes.html">Episodes</a>
         <a href="season1.html">Season 1</a>
         <a href="season2.html">Season 2</a>
@@ -70,13 +74,26 @@
     </div>
 
     <script>
+        // Fetch request modelled after JSON Placeholder: https://jsonplaceholder.typicode.com/
+
+        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
+
+        // This will print only one episode, the one with id of 1 (note URL: 'episodes/1')
+        // This can be used as an example request, as in JSON Placeholder example:
+        // fetch('https://the-twilight-zone-api.herokuapp.com/episodes/1')
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
 
         const episodeResults = document.querySelector('.episodes');
 
+        // Loader - see: https://stackoverflow.com/questions/53799108/how-to-add-a-loading-animation-while-fetch-data-from-api-vanilla-js
         let loader = `<div class='boxLoading'></div>`;
         document.querySelector('.box').innerHTML = loader;
 
-        fetch('https://the-twilight-zone-api.herokuapp.com/season1')
+        // fetch('https://the-twilight-zone-api.herokuapp.com/season1')
+        fetch('https://the-twilight-zone-api.vercel.app/season1')
             .then((res) => res.json())
             .then(function (data) {
                 let episodes = data.results;
