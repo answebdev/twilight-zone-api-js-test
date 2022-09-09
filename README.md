@@ -8,7 +8,7 @@ This is a test site created in order to test my custom-built [The Twilight Zone 
 
 ## Live Link
 
-Please check out the live link for The Twilight Zone API Test Site: [The Twilight Zone API Test Site](https://answebdev.github.io/twilight-zone-api-js-test/episodes.html "The Twilight Zone API Test Site")
+Please check out the live link for The Twilight Zone API Test Site: [The Twilight Zone API Test Site](https://answebdev.github.io/twilight-zone-api-js-test/index.html "The Twilight Zone API Test Site")
 
 ## Development
 
