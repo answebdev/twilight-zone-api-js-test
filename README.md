@@ -1,4 +1,4 @@
-# Twilight Zone API JS Test
+# The Twilight Zone API JS Test
 
 ## Description
 
@@ -8,11 +8,11 @@ This is a test site created in order to test my custom-built [The Twilight Zone 
 
 ## Live Link
 
-Please check out the live link for The Twilight Zone API Test Site: [The Twilight Zone API Test Site](https://answebdev.github.io/twilight-zone-api-js-test/episodes.html "The Twilight Zone API Test Site")
+Please check out the live link for The Twilight Zone API Test Site: [The Twilight Zone API Test Site](https://answebdev.github.io/twilight-zone-api-js-test/index.html "The Twilight Zone API Test Site")
 
 ## Development
 
-After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season's page. The following JavaScript code is from the `app.js` file and is for fetching and rendering the data and the HTML for all of the episodes. To start, I use `querySelector` to select the `div` with the class of "episodes". This is where the HTML and the data will be rendered on the page. Then, I start by fetching the data from my custom-built endpoint for all of the episodes: `https://the-twilight-zone-api.herokuapp.com/episodes`. Next, I map through the data and name each item that is to be rendered `item`, then create the HTML that will be rendered with the data. The fetched data is then added to this block of code so that it can be rendered on the page, for example:
+After creating my endpoints, I created this test site in order to test the endpoints. This is done by clicking on the navbar to navigate to the particular season's page. The following JavaScript code is from the `app.js` file and is for fetching and rendering the data and the HTML for all of the episodes. To start, I use `querySelector` to select the `div` with the class of "episodes". This is where the HTML and the data will be rendered on the page. Then, I start by fetching the data from my custom-built endpoint for all of the episodes: `https://the-twilight-zone-api.vercel.app/episodes`. Next, I map through the data and name each item that is to be rendered `item`, then create the HTML that will be rendered with the data. The fetched data is then added to this block of code so that it can be rendered on the page, for example:
 
 `<h3 id='title'>${item.title}</h3>`
 
@@ -24,7 +24,7 @@ const episodeResults = document.querySelector('.episodes');
 let loader = `<div class="boxLoading"></div>`;
 document.querySelector('.boxLoading').innerHTML = loader;
 
-fetch('https://the-twilight-zone-api.herokuapp.com/episodes')
+fetch('https://the-twilight-zone-api.vercel.app/episodes')
   .then((res) => res.json())
   .then(function (data) {
     let episodes = data.results;
